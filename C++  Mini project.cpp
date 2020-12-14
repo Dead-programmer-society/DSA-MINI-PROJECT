@@ -381,7 +381,8 @@ void instruction_gussing_number()
     for(int i =0;i<32;i++)cout<<" ";
     cout<<"|     Within seven try."; for(int i =0;i<32;i++)cout<<" ";cout<<"|"<<endl;
     for(int i =0;i<32;i++)cout<<" ";for(int i =0;i<55;i++)cout<<"-";cout<<endl;
-
+    
+//    cout << endl;
 
 
 
