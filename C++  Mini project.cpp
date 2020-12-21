@@ -540,19 +540,19 @@ int main()
     cout<<endl;
     for(int i =0;i<45;i++)cout<<" ";int p;cout<<"ENTER YOUR CHOICE: ";cin>>p;
     cout<<endl;
-    if (p==1){gussing_number();}
+    if (p==1){system("cls");gussing_number();}
     else if(p==2)
-    {system("Color 0C");
+    {system("cls");system("Color 0C");
     int x=0;
 
     for(int i =0;i<45;i++)cout<<" "; cout<< "Select the number of play (1or2): ";cin>>x;
 
-    if (x==1) {single_player();}
+    if (x==1) {system("cls");single_player();}
 
-    else if(x==2) {double_player();}
+    else if(x==2) {system("cls");double_player();}
     
     else {for(int i =0;i<45;i++)cout<<" ";cout<<"PLEASE ENTER A VALID CHOISE"<<endl;}}
-    else if(p==3){
+    else if(p==3){system("cls");
     	casino_royale();
 	}
     else {for(int i =0;i<45;i++)cout<<" ";cout<<"PLEASE ENTER A VALID CHOISE"<<endl;}
