@@ -1,6 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+
 void drawLine(int n, char symbol);
 void rules();
 
@@ -66,15 +67,15 @@ string choose_word(int  Difficulty_Level)
 
     data[2] = {"rainbow","government","problem","different","important",
                              "prepositions","difficulty","determine","wikipedia","candidates","mathematics",
-                             "admission","computer","alrady","public"};
+                             "admission","computer","already","public"};
     if (Difficulty_Level == 1)
     {
         srand((unsigned) time(0));
         index =  rand() %73;
-
+ 
           
     }
-    else
+    else 
     {
         srand((unsigned) time(0));
          index =  rand() %13;
@@ -196,19 +197,25 @@ void single_player()
             else
             {
                 pp1-=1;
+                
 
                 correct.push_back(picked_word);
 
 
             }
-
+        
+        
+       
+        
 
         if(i==7)
         {
+        	cout << endl;
+        	cout << endl;
             if(pp1> 6)
             {
-               for(int i =0;i<45;i++)cout<<" "; cout <<"Congratulations"<<p1name<<"YOU WIN"<<endl;
-               for(int i =0;i<45;i++)cout<<" "; cout<<"YOUR SCORE "<<pp1<<endl;
+               for(int i =0;i<45;i++)cout<<" "; cout <<"Congratulations "<<p1name<<" YOU WIN "<<endl;
+               for(int i =0;i<45;i++)cout<<" "; cout<<"YOUR SCORE  : "<<pp1<<endl;
                 if(pp1!=8)
                 {
                     for(int i =0;i<45;i++)cout<<" "; cout<<"CORRECT ANSWER ARE: ";
@@ -223,7 +230,7 @@ void single_player()
                 for(int i =0;i<45;i++)cout<<" "; cout<<"CORRECT ANSWER ARE: ";for(auto i:correct)cout<<i<<", ";
 
             }
-            else { for(int i =0;i<45;i++)cout<<" "; cout<<"YOUR SCORE  "<<pp1<<endl;
+            else { for(int i =0;i<45;i++)cout<<" "; cout<<"YOUR SCORE : "<<pp1<<endl;
                    for(int i =0;i<45;i++)cout<<" "; cout<< "BETTER LUCK NEXT TIME........."<<endl;
             for(int i =0;i<45;i++)cout<<" ";cout<<"CORRECT ANSWER ARE: ";for(auto i:correct){cout<<i<<", ";}
         cout<<endl;
@@ -236,7 +243,7 @@ void single_player()
 
         }
         thank(p1name,pp1);
-
+        
 
 
 
@@ -244,7 +251,7 @@ void single_player()
 
  void thank_2(string p1name,string p2name,int pp1,int pp2)
     {
-        for(int i =0;i<45;i++)cout<<" ";cout<<p1name<<" your final score is "<<pp1<<endl;
+	    for(int i =0;i<45;i++)cout<<" ";cout<<p1name<<" your final score is "<<pp1<<endl;
         for(int i =0;i<45;i++)cout<<" ";cout<<p2name<<" your final score is "<<pp2<<endl;
         for(int i =0;i<45;i++)cout<<" ";cout<<"Thanks for playing"<<endl;
 
@@ -414,20 +421,25 @@ void gussing_number()
 
     for(int i =0;i<45;i++)cout<<" "; cout<< "GUESS THE NUMBER IN SEVEN CHANCE"<<endl;
     cout<<endl;
-    for(int i = 1;i<=7;i++)
+    int j_{};
+    int temp = 0;
+    for(int j_ = 1;j_<=7;j_++)
     {
         int ans;
-        for(int i =0;i<45;i++)cout<<" "; cout<<i<<" TIME ENTER YOUR GUSE NUMBER: ";cin>>ans;
+        for(int i =0;i<45;i++)cout<<" "; cout<<j_<<" TIME ENTER YOUR GUESS NUMBER: ";cin>>ans;
 
         if (ans > secret_number){for(int i =0;i<45;i++)cout<<" "; cout<< "THE NUMBER IS TOO HIGH"<<endl;}
         else if (ans < secret_number)  {for(int i =0;i<45;i++)cout<<" ";  cout<< "THE NUMBER IS TOO LOW"<<endl;}
-        else {for(int i =0;i<45;i++)cout<<" "; cout<<"WINNER WINNER CHICKEN DINNER"<<endl;
+
+        else { temp = 1; cout<<endl;for(int i =0;i<45;i++)cout<<" "; cout<<"WINNER WINNER CHICKEN DINNER"<<endl;
         for(int i =0;i<45;i++)cout<<" "; cout<< "CONGURATs!! "<< name<<endl;
         break;}
 
     }
+    if (temp == 0){
+        cout<<endl;
    for(int i =0;i<45;i++)cout<<" ";  cout<< "ANSWER IS "<<secret_number<<endl;
-   for(int i =0;i<45;i++)cout<<" "; cout<<"You Lost!!"<<endl;
+   for(int i =0;i<45;i++)cout<<" "; cout<<"You Lost!!"<<endl;}
 
 }
 
@@ -435,7 +447,7 @@ void end_()
 {
     system("Color 0A");
     for(int i =0;i<45;i++)cout<<" "; cout<<"GAME OVER"<<endl;
-    for(int i =0;i<45;i++)cout<<" ";cout<<"*********";
+    for(int i =0;i<45;i++)cout<<" ";cout<<"***";
 
 
 
@@ -443,7 +455,7 @@ void end_()
 
 void casino_royale()
 {
-	string playerName;
+    string playerName;
     int amount; // hold player's balance amount
     int bettingAmount; 
     int guess;
@@ -457,9 +469,9 @@ void casino_royale()
     drawLine(60,'_');
  
     cout << "\n\nEnter Your Name : ";
-    getline(cin, playerName);
- 
-    cout << "\n\nEnter Deposit amount to play game : $";
+    cin>>playerName;
+
+    cout << "\n\n Enter Deposit amount to play game : $";
     cin >> amount;
     
     do
@@ -467,18 +479,19 @@ void casino_royale()
         system("cls");
         rules();
         cout << "\n\nYour current balance is $ " << amount << "\n";
-		
-		// Get player's betting amount
+        
+        // Get player's betting amount
         do
         {
-            cout <<playerName<<"enter money to bet : $";
+        	
+            cout <<playerName << " " <<"enter money to bet : $";
             cin >> bettingAmount;
             if(bettingAmount > amount)
                 cout << "Your betting amount is more than your current balance\n"
                        <<"\nRe-enter data\n ";
         }while(bettingAmount > amount);
  
-		// Get player's numbers
+        // Get player's numbers
         do
         {
             cout << "Guess your number to bet between 1 to 10 :";
@@ -508,7 +521,7 @@ void casino_royale()
             cout << "You have no money to play ";
             break;
         }
-        cout << "\n\n-->Do you want to play again (y/n)? ";		
+        cout << "\n\n-->Do you want to play again (y/n)? ";     
         cin >> choice;
     }while(choice =='Y'|| choice=='y');
     
@@ -541,6 +554,11 @@ void rules()
 
 int main()
 {
+
+    char cho;
+
+    do
+    {
     bgin();
 
     for(int i =0;i<45;i++)cout<<" ";cout<< "1) GUESSING NUMBER. "<<endl;
@@ -563,10 +581,25 @@ int main()
     else {for(int i =0;i<45;i++)cout<<" ";cout<<"PLEASE ENTER A VALID CHOISE"<<endl;}}
     else if(p==3){
         system("cls");
-    	casino_royale();
-	}
+        casino_royale();
+    }
     else {for(int i =0;i<45;i++)cout<<" ";cout<<"PLEASE ENTER A VALID CHOISE"<<endl;}
     cout<<endl;
     end_();
+
+    cout<<endl;
+
+    
+
+    
+
+    cout<<endl<<endl;
+
+    for(int i =0;i<30;i++)cout<<" ";cout << "-->Do you want to play again (y/n)? ";cin >> cho;system("cls");
+
+
+
+        
+    }while(cho =='Y'|| cho=='y');
 
 }
